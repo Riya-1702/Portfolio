@@ -1,0 +1,132 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Sun, Moon, ChevronUp } from 'lucide-react';
+import { useTheme } from './ThemeProvider';
+
+export const Navigation: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+      setShowBackToTop(scrollTop > 500);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navItems = [
+    { label: 'Home', id: 'hero' },
+    { label: 'About', id: 'about' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Education', id: 'education' },
+    { label: 'Certificates', id: 'certificates' },
+    { label: 'Contact', id: 'contact' },
+  ];
+
+  return (
+    <>
+      {/* Navigation */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-black/90 backdrop-blur-md shadow-lg border-b border-amber-500/30' 
+          : 'bg-transparent'
+      }`}>
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <button
+              onClick={() => scrollToSection('hero')}
+              className="text-2xl font-bold text-amber-300 hover:text-amber-200 transition-colors hover-target"
+            >
+              Riya Sharma
+            </button>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-amber-200 hover:text-amber-100 transition-colors hover-target relative group"
+                >
+                  {item.label}
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 group-hover:w-full transition-all duration-300"></div>
+                </button>
+              ))}
+              
+              {/* Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-amber-600/20 text-amber-300 hover:text-amber-100 hover:bg-amber-600/30 transition-colors hover-target border border-amber-500/30"
+              >
+                {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-amber-600/20 text-amber-300 hover-target border border-amber-500/30"
+              >
+                {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+              </button>
+              
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 rounded-lg bg-amber-600/20 text-amber-300 hover-target border border-amber-500/30"
+              >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className="md:hidden mt-4 pb-4">
+              <div className="flex flex-col space-y-2">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-left py-2 text-amber-200 hover:text-amber-100 transition-colors hover-target"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-black p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40 hover-target border-2 border-amber-400/50 hover:border-amber-300"
+        >
+          <ChevronUp className="w-6 h-6" />
+        </button>
+      )}
+    </>
+  );
+};
