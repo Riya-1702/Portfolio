@@ -25,7 +25,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-black text-stone-900 dark:text-amber-100">
+      <div className="min-h-screen bg-gradient-to-b from-slate-900 to-indigo-950 text-cyan-100">
         <CustomCursor />
         <Navigation />
         

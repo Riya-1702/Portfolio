@@ -46,7 +46,7 @@ export const Navigation: React.FC = () => {
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-black/90 backdrop-blur-md shadow-lg border-b border-amber-500/30' 
+          ? 'bg-slate-900/90 backdrop-blur-md shadow-lg border-b border-cyan-500/30' 
           : 'bg-transparent'
       }`}>
         <div className="container mx-auto px-6 py-4">
@@ -54,7 +54,7 @@ export const Navigation: React.FC = () => {
             {/* Logo */}
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-2xl font-bold text-amber-300 hover:text-amber-200 transition-colors hover-target"
+              className="text-2xl font-bold text-cyan-300 hover:text-cyan-200 transition-colors hover-target"
             >
               Riya Sharma
             </button>
@@ -65,17 +65,17 @@ export const Navigation: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-amber-200 hover:text-amber-100 transition-colors hover-target relative group"
+                  className="text-cyan-200 hover:text-cyan-100 transition-colors hover-target relative group"
                 >
                   {item.label}
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 group-hover:w-full transition-all duration-300"></div>
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"></div>
                 </button>
               ))}
               
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-lg bg-amber-600/20 text-amber-300 hover:text-amber-100 hover:bg-amber-600/30 transition-colors hover-target border border-amber-500/30"
+                className="p-2 rounded-lg bg-cyan-600/20 text-cyan-300 hover:text-cyan-100 hover:bg-cyan-600/30 transition-colors hover-target border border-cyan-500/30"
               >
                 {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
               </button>
@@ -85,14 +85,14 @@ export const Navigation: React.FC = () => {
             <div className="md:hidden flex items-center gap-2">
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-lg bg-amber-600/20 text-amber-300 hover-target border border-amber-500/30"
+                className="p-2 rounded-lg bg-cyan-600/20 text-cyan-300 hover-target border border-cyan-500/30"
               >
                 {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
               </button>
               
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-lg bg-amber-600/20 text-amber-300 hover-target border border-amber-500/30"
+                className="p-2 rounded-lg bg-cyan-600/20 text-cyan-300 hover-target border border-cyan-500/30"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -107,7 +107,7 @@ export const Navigation: React.FC = () => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-left py-2 text-amber-200 hover:text-amber-100 transition-colors hover-target"
+                    className="text-left py-2 text-cyan-200 hover:text-cyan-100 transition-colors hover-target"
                   >
                     {item.label}
                   </button>
@@ -122,7 +122,7 @@ export const Navigation: React.FC = () => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-black p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40 hover-target border-2 border-amber-400/50 hover:border-amber-300"
+          className="fixed bottom-8 right-8 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40 hover-target border-2 border-cyan-400/50 hover:border-cyan-300"
         >
           <ChevronUp className="w-6 h-6" />
         </button>

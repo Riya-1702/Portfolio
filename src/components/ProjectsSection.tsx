@@ -93,17 +93,56 @@ export const ProjectsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-black relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-slate-900 via-indigo-950 to-purple-950 relative overflow-hidden">
+      {/* Cosmic Ocean Background Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating Particles */}
+        {[...Array(60)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 4}s`,
+              boxShadow: '0 0 8px currentColor',
+            }}
+          />
+        ))}
+        
+        {/* Larger Glowing Orbs */}
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={`orb-${i}`}
+            className="absolute rounded-full bg-gradient-to-r from-cyan-400/20 to-purple-500/20 animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${Math.random() * 30 + 15}px`,
+              height: `${Math.random() * 30 + 15}px`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${3 + Math.random() * 6}s`,
+              filter: 'blur(2px)',
+            }}
+          />
+        ))}
+        
+        {/* Nebula Waves */}
+        <div className="absolute top-1/3 left-0 w-full h-32 bg-gradient-to-r from-transparent via-purple-500/15 to-transparent transform rotate-6 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-0 w-full h-24 bg-gradient-to-l from-transparent via-cyan-500/15 to-transparent transform -rotate-3 animate-pulse delay-1000"></div>
+      </div>
+      
       {/* Glowing Background Elements */}
-      <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-cyan-100 mb-4">
             Featured Projects
           </h2>
-          <p className="text-lg text-amber-300 max-w-2xl mx-auto">
+          <p className="text-lg text-cyan-300 max-w-2xl mx-auto">
             A showcase of my technical projects and innovations in AI, DevOps, and software development
           </p>
         </div>
@@ -137,8 +176,8 @@ export const ProjectsSection: React.FC = () => {
                 >
                   <div className={`w-80 h-[560px] rounded-2xl overflow-hidden shadow-2xl border transition-all duration-300 ${
                     isActive 
-                      ? 'bg-gradient-to-br from-stone-800 to-stone-900 border-amber-400/50' 
-                      : 'bg-stone-800 border-amber-500/30'
+                      ? 'bg-gradient-to-br from-slate-800 to-slate-900 border-cyan-400/50' 
+                      : 'bg-slate-800 border-cyan-500/30'
                   }`}>
                     {/* Project Image */}
                     <div className="relative h-48 overflow-hidden">
@@ -157,18 +196,18 @@ export const ProjectsSection: React.FC = () => {
                     </div>
                     
                     {/* Project Content */}
-                    <div className="p-6 flex flex-col justify-between h-[calc(100%-12rem)] text-amber-100">
+                    <div className="p-6 flex flex-col justify-between h-[calc(100%-12rem)] text-cyan-100">
                       <div>
-                        <h3 className={`text-xl font-bold mb-3 ${isActive ? 'text-amber-200' : 'text-amber-300/70'}`}>{project.title}</h3>
-                        <p className={`text-sm mb-4 line-clamp-3 ${isActive ? 'text-amber-300/80' : 'text-amber-300/50'}`}>{project.description}</p>
+                        <h3 className={`text-xl font-bold mb-3 ${isActive ? 'text-cyan-200' : 'text-cyan-300/70'}`}>{project.title}</h3>
+                        <p className={`text-sm mb-4 line-clamp-3 ${isActive ? 'text-cyan-300/80' : 'text-cyan-300/50'}`}>{project.description}</p>
                         <div className="flex flex-wrap gap-2 mb-4">
                           {project.tags.slice(0, 3).map((tag, tagIndex) => (
                             <span
                               key={tagIndex}
                               className={`px-2 py-1 rounded-full text-xs border ${
                                 isActive 
-                                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' 
-                                  : 'bg-amber-500/10 text-amber-300/60 border-amber-500/20'
+                                  ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30' 
+                                  : 'bg-cyan-500/10 text-cyan-300/60 border-cyan-500/20'
                               }`}
                             >
                               {tag}
@@ -180,7 +219,7 @@ export const ProjectsSection: React.FC = () => {
                         <div className="flex gap-3 mt-4">
                           <a
                             href={project.github}
-                            className="flex items-center gap-2 bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 px-3 py-2 rounded-lg transition-all duration-300 text-sm border border-amber-500/30 hover:border-amber-400/50"
+                            className="flex items-center gap-2 bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 px-3 py-2 rounded-lg transition-all duration-300 text-sm border border-cyan-500/30 hover:border-cyan-400/50"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -189,7 +228,7 @@ export const ProjectsSection: React.FC = () => {
                           </a>
                           <a
                             href={project.demo}
-                            className="flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-black px-3 py-2 rounded-lg transition-all duration-300 text-sm font-semibold"
+                            className="flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white px-3 py-2 rounded-lg transition-all duration-300 text-sm font-semibold"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -208,14 +247,14 @@ export const ProjectsSection: React.FC = () => {
           {/* Navigation Buttons */}
           <button
             onClick={prevProject}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-amber-600/20 hover:bg-amber-600/40 text-amber-300 p-3 rounded-full transition-all duration-300 hover:scale-110 hover-target border border-amber-500/30 backdrop-blur-sm"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 p-3 rounded-full transition-all duration-300 hover:scale-110 hover-target border border-cyan-500/30 backdrop-blur-sm"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           
           <button
             onClick={nextProject}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-amber-600/20 hover:bg-amber-600/40 text-amber-300 p-3 rounded-full transition-all duration-300 hover:scale-110 hover-target border border-amber-500/30 backdrop-blur-sm"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 p-3 rounded-full transition-all duration-300 hover:scale-110 hover-target border border-cyan-500/30 backdrop-blur-sm"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -228,8 +267,8 @@ export const ProjectsSection: React.FC = () => {
                 onClick={() => goToProject(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 hover-target ${
                   index === currentProject
-                    ? 'bg-amber-500 scale-125 shadow-lg shadow-amber-500/50'
-                    : 'bg-amber-500/30 hover:bg-amber-500/50'
+                    ? 'bg-cyan-500 scale-125 shadow-lg shadow-cyan-500/50'
+                    : 'bg-cyan-500/30 hover:bg-cyan-500/50'
                 }`}
               />
             ))}
@@ -239,7 +278,7 @@ export const ProjectsSection: React.FC = () => {
         <div className="flex justify-center mt-12">
           <a
             href="#"
-            className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/30 hover-target font-semibold"
+            className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 hover-target font-semibold"
           >
             See All Projects
           </a>

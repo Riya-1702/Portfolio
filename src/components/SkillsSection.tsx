@@ -16,17 +16,39 @@ const skills = [
 
 export const SkillsSection: React.FC = () => {
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-purple-950 via-indigo-950 to-slate-900 relative overflow-hidden">
+      {/* Cosmic Ocean Background Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating Particles */}
+        {[...Array(40)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-30"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 4}s`,
+              boxShadow: '0 0 6px currentColor',
+            }}
+          />
+        ))}
+        
+        {/* Nebula Waves */}
+        <div className="absolute top-1/4 left-0 w-full h-20 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent transform rotate-3 animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-0 w-full h-24 bg-gradient-to-l from-transparent via-cyan-500/10 to-transparent transform -rotate-2 animate-pulse delay-1000"></div>
+      </div>
+      
       {/* Glowing Background Elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-amber-300/20 to-orange-400/20 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-purple-300/20 to-pink-400/20 rounded-full blur-xl animate-pulse delay-500"></div>
+      <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-purple-400/20 to-pink-500/20 rounded-full blur-xl animate-pulse delay-500"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-cyan-100 mb-4">
             Skills & Expertise
           </h2>
-          <p className="text-lg text-amber-600 max-w-2xl mx-auto font-medium">
+          <p className="text-lg text-cyan-300 max-w-2xl mx-auto font-medium">
             Passionate about technology and continuously learning new tools and frameworks
           </p>
         </div>
@@ -49,7 +71,7 @@ export const SkillsSection: React.FC = () => {
                     stroke="currentColor"
                     strokeWidth="8"
                     fill="transparent"
-                    className="text-stone-200"
+                    className="text-slate-700"
                   />
                   {/* Progress Circle */}
                   <circle
@@ -76,7 +98,7 @@ export const SkillsSection: React.FC = () => {
                 
                 {/* Icon in Center */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className={`p-3 rounded-full bg-gradient-to-r ${skill.color} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`p-3 rounded-full bg-gradient-to-r ${skill.color} text-white shadow-lg shadow-cyan-500/30 group-hover:scale-110 transition-transform duration-300`}>
                     <skill.icon className="w-6 h-6" />
                   </div>
                 </div>
@@ -86,7 +108,7 @@ export const SkillsSection: React.FC = () => {
               </div>
               
               {/* Skill Name */}
-              <h3 className="text-lg font-bold text-stone-800 text-center group-hover:text-amber-600 transition-colors duration-300">
+              <h3 className="text-lg font-bold text-cyan-200 text-center group-hover:text-cyan-100 transition-colors duration-300">
                 {skill.name}
               </h3>
               

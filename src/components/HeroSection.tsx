@@ -7,9 +7,61 @@ export const HeroSection: React.FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-indigo-950 via-purple-950 to-slate-900">
+      {/* Cosmic Ocean Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Deep Ocean Gradient */}
+        <div className="absolute inset-0 bg-gradient-radial from-cyan-900/30 via-indigo-950/50 to-slate-900"></div>
+        
+        {/* Floating Bioluminescent Particles */}
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-60"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 4}s`,
+              boxShadow: '0 0 10px currentColor',
+            }}
+          />
+        ))}
+        
+        {/* Larger Glowing Orbs */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={`orb-${i}`}
+            className="absolute rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-500/20 animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${Math.random() * 20 + 10}px`,
+              height: `${Math.random() * 20 + 10}px`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${3 + Math.random() * 6}s`,
+              filter: 'blur(1px)',
+            }}
+          />
+        ))}
+        
+        {/* Nebula-like Waves */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-1/4 left-0 w-full h-32 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent transform rotate-12 animate-pulse"></div>
+          <div className="absolute top-2/3 right-0 w-full h-24 bg-gradient-to-l from-transparent via-cyan-500/20 to-transparent transform -rotate-6 animate-pulse delay-1000"></div>
+        </div>
+        
+        {/* Underwater Light Caustics Effect */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-gradient-radial from-cyan-300/30 to-transparent rounded-full animate-pulse"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-gradient-radial from-blue-400/30 to-transparent rounded-full animate-pulse delay-500"></div>
+        </div>
+      </div>
+      
       {/* Full Section Atomic Animation */}
-      <AtomAnimation />
+      <div className="absolute inset-0 opacity-20">
+        <AtomAnimation />
+      </div>
       
       {/* Resume Accordion */}
       <div className="absolute top-8 right-8 z-10">
