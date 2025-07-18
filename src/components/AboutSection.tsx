@@ -1,5 +1,12 @@
 import React from 'react';
-import { Heart, BookOpen, Users, Lightbulb, Code, Palette, Award, Briefcase, GraduationCap } from 'lucide-react';
+import { Heart, Lightbulb, Palette, BookOpen, Award, Code, Users, Briefcase, GraduationCap } from 'lucide-react';
+
+const personalHighlights = [
+  { icon: Heart, title: 'Impact Creator', desc: 'Making a positive difference through technology', color: 'from-pink-500 to-rose-500' },
+  { icon: Lightbulb, title: 'Problem Solver', desc: 'Creating solutions that empower and inspire', color: 'from-yellow-500 to-orange-500' },
+  { icon: Palette, title: 'Creative Soul', desc: 'Crafting resin art and handmade expressions', color: 'from-purple-500 to-pink-500' },
+  { icon: BookOpen, title: 'Lifelong Learner', desc: 'Continuously exploring new technologies', color: 'from-blue-500 to-cyan-500' }
+];
 
 const achievements = [
   {
@@ -66,10 +73,10 @@ const experiences = [
 export const AboutSection: React.FC = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-slate-900 via-indigo-950 to-purple-950 relative overflow-hidden">
-      {/* Cosmic Ocean Background Effects */}
+      {/* Enhanced Cosmic Ocean Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Floating Particles */}
-        {[...Array(30)].map((_, i) => (
+        {/* Bioluminescent Particles */}
+        {[...Array(40)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40"
@@ -88,7 +95,7 @@ export const AboutSection: React.FC = () => {
         <div className="absolute bottom-1/4 right-0 w-full h-32 bg-gradient-to-l from-transparent via-cyan-500/10 to-transparent transform -rotate-3 animate-pulse delay-1000"></div>
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 mr-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-cyan-100 mb-4">
             ✨ About Me
@@ -102,10 +109,10 @@ export const AboutSection: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            {/* Left Side - About Text */}
-            <div className="space-y-6">
+          {/* Main About Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            {/* Left Side - About Text (2/3 width) */}
+            <div className="lg:col-span-2 space-y-6">
               <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/30 relative overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-purple-500/5 rounded-2xl"></div>
@@ -130,36 +137,61 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Side - Personal Highlights */}
+            {/* Right Side - Personal Highlights & Achievements Cards (1/3 width) */}
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-cyan-200 mb-6">Personal Highlights</h3>
-              <div className="grid grid-cols-1 gap-4">
-                {[
-                  { icon: Heart, title: 'Impact Creator', desc: 'Making a positive difference through technology', color: 'from-pink-500 to-rose-500' },
-                  { icon: Lightbulb, title: 'Problem Solver', desc: 'Creating solutions that empower and inspire', color: 'from-yellow-500 to-orange-500' },
-                  { icon: Palette, title: 'Creative Soul', desc: 'Crafting resin art and handmade expressions', color: 'from-purple-500 to-pink-500' },
-                  { icon: BookOpen, title: 'Lifelong Learner', desc: 'Continuously exploring new technologies', color: 'from-blue-500 to-cyan-500' }
-                ].map((item, index) => (
-                  <div
-                    key={item.title}
-                    className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-4 border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className={`p-2 rounded-lg bg-gradient-to-r ${item.color} text-white group-hover:scale-110 transition-transform duration-300`}>
-                        <item.icon className="w-5 h-5" />
+              {/* Personal Highlights Card */}
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-cyan-500/30 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5 rounded-2xl"></div>
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-cyan-200 mb-4">Personal Highlights</h3>
+                  <div className="space-y-3">
+                    {personalHighlights.map((item, index) => (
+                      <div
+                        key={item.title}
+                        className="flex items-center gap-3 p-3 rounded-lg bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 group"
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                      >
+                        <div className={`p-2 rounded-lg bg-gradient-to-r ${item.color} text-white group-hover:scale-110 transition-transform duration-300`}>
+                          <item.icon className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-cyan-200 text-sm group-hover:text-cyan-100 transition-colors duration-300">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs text-cyan-300/70 group-hover:text-cyan-300 transition-colors duration-300">
+                            {item.desc}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-cyan-200 group-hover:text-cyan-100 transition-colors duration-300">
-                          {item.title}
-                        </h4>
-                        <p className="text-sm text-cyan-300/70 group-hover:text-cyan-300 transition-colors duration-300">
-                          {item.desc}
-                        </p>
-                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Stats Card */}
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-cyan-500/30 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-2xl"></div>
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-cyan-200 mb-4">Quick Stats</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-cyan-300">50+</div>
+                      <div className="text-xs text-cyan-400">Students Taught</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-cyan-300">10+</div>
+                      <div className="text-xs text-cyan-400">Projects Built</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-cyan-300">3+</div>
+                      <div className="text-xs text-cyan-400">Research Papers</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-cyan-300">2+</div>
+                      <div className="text-xs text-cyan-400">Years Learning</div>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           </div>
@@ -174,7 +206,6 @@ export const AboutSection: React.FC = () => {
                   className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 group relative overflow-hidden"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  {/* Background Glow */}
                   <div className={`absolute inset-0 bg-gradient-to-r ${achievement.color} opacity-0 group-hover:opacity-10 transition-all duration-500`}></div>
                   
                   <div className="relative z-10 text-center">
@@ -205,7 +236,6 @@ export const AboutSection: React.FC = () => {
                   className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 group relative overflow-hidden"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  {/* Background Glow */}
                   <div className={`absolute inset-0 bg-gradient-to-r ${experience.color} opacity-0 group-hover:opacity-10 transition-all duration-500`}></div>
                   
                   <div className="relative z-10">

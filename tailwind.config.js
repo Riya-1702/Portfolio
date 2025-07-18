@@ -27,6 +27,7 @@ export default {
         'slide-in-from-top-2': 'slideInFromTop 0.3s ease-out',
         'bounce': 'bounce 2s infinite',
         'pulse': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'spin': 'spin 1s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -58,6 +59,12 @@ export default {
       },
       perspective: {
         '1000': '1000px',
+      },
+      transformStyle: {
+        'preserve-3d': 'preserve-3d',
+      },
+      backfaceVisibility: {
+        'hidden': 'hidden',
       },
     },
   },

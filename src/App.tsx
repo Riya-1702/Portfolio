@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { ThemeProvider } from './components/ThemeProvider';
 import { CustomCursor } from './components/CustomCursor';
 import { LoadingScreen } from './components/LoadingScreen';
-import { Navigation } from './components/Navigation';
+import { RightSideMenu } from './components/RightSideMenu';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
-import { SkillsSection } from './components/SkillsSection';
+import { TechnologySection } from './components/TechnologySection';
 import { ProjectsSection } from './components/ProjectsSection';
-import { EducationSection } from './components/EducationSection';
-import { ContactSection } from './components/ContactSection';
+import { ResearchSection } from './components/ResearchSection';
 import { CertificatesSection } from './components/CertificatesSection';
+import { ContactSection } from './components/ContactSection';
 import { WaveDivider } from './components/WaveDivider';
 
 function App() {
@@ -27,62 +27,78 @@ function App() {
     <ThemeProvider>
       <div className="min-h-screen bg-gradient-to-b from-slate-900 to-indigo-950 text-cyan-100">
         <CustomCursor />
-        <Navigation />
+        <RightSideMenu />
         
         <main>
           <div id="hero">
             <HeroSection />
           </div>
           
-          <WaveDivider className="text-white" />
+          <WaveDivider className="text-cyan-500/20" />
           
           <div id="about">
             <AboutSection />
           </div>
           
-          <WaveDivider className="text-black" flip />
+          <WaveDivider className="text-purple-500/20" flip />
           
-          <div id="skills">
-            <SkillsSection />
+          <div id="technology">
+            <TechnologySection />
           </div>
           
-          <WaveDivider className="text-white" />
+          <WaveDivider className="text-cyan-500/20" />
           
           <div id="projects">
             <ProjectsSection />
           </div>
           
-          <WaveDivider className="text-black" flip />
+          <WaveDivider className="text-purple-500/20" flip />
           
-          <div id="education">
-            <EducationSection />
+          <div id="research">
+            <ResearchSection />
           </div>
           
-          <WaveDivider className="text-black" flip />
+          <WaveDivider className="text-cyan-500/20" />
           
           <div id="certificates">
             <CertificatesSection />
           </div>
           
-          <WaveDivider className="text-white" />
+          <WaveDivider className="text-purple-500/20" flip />
           
           <div id="contact">
             <ContactSection />
           </div>
         </main>
         
-        <footer className="bg-black text-amber-200 py-8 border-t border-amber-500/30">
-          <div className="container mx-auto px-6 text-center">
+        <footer className="bg-slate-900/90 text-cyan-200 py-8 border-t border-cyan-500/30 relative">
+          {/* Background Effects */}
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(20)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-20"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 3}s`,
+                  animationDuration: `${2 + Math.random() * 4}s`,
+                }}
+              />
+            ))}
+          </div>
+          
+          <div className="container mx-auto px-6 text-center relative z-10">
             <p className="mb-2">© 2024 Riya Sharma. All rights reserved.</p>
-            <p className="text-sm text-amber-300/70 mb-4">
-              Built with React, TypeScript, and Tailwind CSS
+            <p className="text-sm text-cyan-300/70 mb-4">
+              Built with React, TypeScript, and Tailwind CSS • Cosmic Ocean Theme
             </p>
             <div className="flex justify-center gap-4">
               <a 
                 href="https://github.com/Riya-1702" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-amber-300 hover:text-amber-100 transition-colors hover-target"
+                className="text-cyan-300 hover:text-cyan-100 transition-colors hover-target"
               >
                 GitHub
               </a>
@@ -90,7 +106,7 @@ function App() {
                 href="https://www.linkedin.com/in/riya-sharma-638a6b217" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-amber-300 hover:text-amber-100 transition-colors hover-target"
+                className="text-cyan-300 hover:text-cyan-100 transition-colors hover-target"
               >
                 LinkedIn
               </a>
@@ -98,7 +114,7 @@ function App() {
                 href="https://instagram.com/_itzzz_riya_17" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-amber-300 hover:text-amber-100 transition-colors hover-target"
+                className="text-cyan-300 hover:text-cyan-100 transition-colors hover-target"
               >
                 Instagram
               </a>
