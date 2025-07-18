@@ -100,10 +100,8 @@ export const HeroSection: React.FC = () => {
           {/* Power Tagline with Atom Animation */}
           <div className="relative mb-6">
             <div className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 opacity-20 blur-xl rounded-lg"></div>
-            <p className="relative text-2xl md:text-3xl text-amber-200 font-bold bg-gradient-to-r from-amber-300 via-orange-400 to-red-400 bg-clip-text text-transparent animate-pulse">
-              Unleashing the <span className="relative">
-                <span className="animate-bounce">⚛️</span> Power
-              </span> of Innovation
+            <p className="relative text-xl md:text-2xl text-cyan-200 font-bold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Transforming ideas into impactful digital experiences with AI, DevOps, and creative problem-solving.
             </p>
           </div>
           
