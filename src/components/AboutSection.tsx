@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, Lightbulb, Palette, BookOpen, Award, Code, Users, Briefcase, GraduationCap } from 'lucide-react';
+import { CosmicBackground } from './CosmicBackground';
 
 const personalHighlights = [
   { icon: Heart, title: 'Impact Creator', desc: 'Making a positive difference through technology', color: 'from-pink-500 to-rose-500' },
@@ -73,37 +74,23 @@ const experiences = [
 export const AboutSection: React.FC = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-slate-900 via-indigo-950 to-purple-950 relative overflow-hidden">
-      {/* Enhanced Cosmic Ocean Background */}
+      {/* Cosmic Ocean Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Bioluminescent Particles */}
-        {[...Array(40)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 4}s`,
-              boxShadow: '0 0 8px currentColor',
-            }}
-          />
-        ))}
-        
-        {/* Nebula Waves */}
-        <div className="absolute top-1/3 left-0 w-full h-24 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent transform rotate-6 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-0 w-full h-32 bg-gradient-to-l from-transparent via-cyan-500/10 to-transparent transform -rotate-3 animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-indigo-950/95 to-purple-950/90"></div>
       </div>
+      
+      {/* 3D Cosmic Animation */}
+      <CosmicBackground intensity="medium" className="opacity-60" />
       
       <div className="container mx-auto px-6 relative z-10 mr-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-cyan-100 mb-4">
-            ✨ About Me
+            Welcome to My Cosmic Depths
           </h2>
           <div className="relative mb-6">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 opacity-20 blur-xl rounded-lg"></div>
             <p className="relative text-2xl md:text-3xl text-cyan-200 font-bold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Crafting AI Solutions with a Creative Soul
+              Exploring Technology Beneath the Stars and Sea
             </p>
           </div>
         </div>

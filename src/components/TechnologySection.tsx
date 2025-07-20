@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Code, Database, Server, Brain, Terminal, GitBranch, Container, Cpu, Cloud, Book } from 'lucide-react';
+import { CosmicBackground } from './CosmicBackground';
 
 const technologies = [
   { name: 'Python', icon: Code, color: 'from-blue-400 to-blue-600', position: { x: 20, y: 30 } },
@@ -64,27 +65,18 @@ export const TechnologySection: React.FC = () => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-purple-950 via-indigo-950 to-slate-900 relative overflow-hidden">
-      {/* Cosmic Ocean Background */}
+      {/* Cosmic Ocean Background Base */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 4}s`,
-              boxShadow: '0 0 6px currentColor',
-            }}
-          />
-        ))}
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/90 via-indigo-950/95 to-slate-900/90"></div>
       </div>
+      
+      {/* 3D Cosmic Animation */}
+      <CosmicBackground intensity="medium" className="opacity-60" />
       
       <div className="container mx-auto px-6 relative z-10 mr-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-cyan-100 mb-4">
-            Technology Arsenal
+            Technology Arsenal in the Depths
           </h2>
           <p className="text-lg text-cyan-300 max-w-2xl mx-auto font-medium">
             Interactive exploration of my technical skills and expertise

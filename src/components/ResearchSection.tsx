@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookOpen, ExternalLink, FileText } from 'lucide-react';
+import { CosmicBackground } from './CosmicBackground';
 
 const researchPapers = [
   {
@@ -25,32 +26,18 @@ const researchPapers = [
 export const ResearchSection: React.FC = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-purple-950 via-slate-900 to-indigo-950 relative overflow-hidden">
-      {/* Cosmic Ocean Background */}
+      {/* Cosmic Ocean Background Base */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Bioluminescent Particles */}
-        {[...Array(35)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 4}s`,
-              boxShadow: '0 0 6px currentColor',
-            }}
-          />
-        ))}
-        
-        {/* Nebula Waves */}
-        <div className="absolute top-1/3 left-0 w-full h-20 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent transform rotate-2 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-0 w-full h-24 bg-gradient-to-l from-transparent via-cyan-500/10 to-transparent transform -rotate-1 animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/90 via-slate-900/95 to-indigo-950/90"></div>
       </div>
+      
+      {/* 3D Cosmic Animation */}
+      <CosmicBackground intensity="low" className="opacity-50" />
       
       <div className="container mx-auto px-6 relative z-10 mr-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-cyan-100 mb-4">
-            Research Contributions
+            Research in the Digital Ocean
           </h2>
           <p className="text-lg text-cyan-300 max-w-2xl mx-auto font-medium">
             Contributing to the advancement of AI and machine learning through academic research

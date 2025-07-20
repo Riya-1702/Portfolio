@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Github, ExternalLink } from 'lucide-react';
+import { CosmicBackground } from './CosmicBackground';
 
 const projects = [
   {
@@ -83,44 +84,13 @@ export const ProjectsSection: React.FC = () => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-slate-900 via-indigo-950 to-purple-950 relative overflow-hidden">
-      {/* Enhanced Cosmic Ocean Background */}
+      {/* Cosmic Ocean Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Bioluminescent Particles */}
-        {[...Array(60)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 4}s`,
-              boxShadow: '0 0 8px currentColor',
-            }}
-          />
-        ))}
-        
-        {/* Larger Glowing Orbs */}
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={`orb-${i}`}
-            className="absolute rounded-full bg-gradient-to-r from-cyan-400/20 to-purple-500/20 animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 30 + 15}px`,
-              height: `${Math.random() * 30 + 15}px`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 6}s`,
-              filter: 'blur(2px)',
-            }}
-          />
-        ))}
-        
-        {/* Nebula Waves */}
-        <div className="absolute top-1/3 left-0 w-full h-32 bg-gradient-to-r from-transparent via-purple-500/15 to-transparent transform rotate-6 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-0 w-full h-24 bg-gradient-to-l from-transparent via-cyan-500/15 to-transparent transform -rotate-3 animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-indigo-950/90 to-purple-950/85"></div>
       </div>
+      
+      {/* 3D Cosmic Animation */}
+      <CosmicBackground intensity="high" className="opacity-70" />
       
       <div className="container mx-auto px-6 relative z-10 mr-20">
         <div className="text-center mb-16">

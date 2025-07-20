@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ChevronDown } from 'lucide-react';
-import { AtomAnimation } from './AtomAnimation';
+import { CosmicBackground } from './CosmicBackground';
 
 export const HeroSection: React.FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -24,64 +24,14 @@ export const HeroSection: React.FC = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-900 via-indigo-950 to-purple-950">
       {/* Enhanced Cosmic Ocean Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Deep Ocean Gradient with Multiple Layers */}
-        <div className="absolute inset-0 bg-gradient-radial from-cyan-900/20 via-indigo-950/60 to-slate-900"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/40 to-slate-900/80"></div>
-        
-        {/* Bioluminescent Particles - Enhanced */}
-        {[...Array(80)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full animate-pulse opacity-60"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 4 + 1}px`,
-              height: `${Math.random() * 4 + 1}px`,
-              backgroundColor: ['#67e8f9', '#06b6d4', '#0891b2', '#0e7490'][Math.floor(Math.random() * 4)],
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 4}s`,
-              boxShadow: '0 0 15px currentColor',
-            }}
-          />
-        ))}
-        
-        {/* Larger Glowing Orbs - Underwater Stars */}
-        {[...Array(25)].map((_, i) => (
-          <div
-            key={`orb-${i}`}
-            className="absolute rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 30 + 15}px`,
-              height: `${Math.random() * 30 + 15}px`,
-              background: `radial-gradient(circle, ${['rgba(103, 232, 249, 0.3)', 'rgba(6, 182, 212, 0.3)', 'rgba(8, 145, 178, 0.3)'][Math.floor(Math.random() * 3)]} 0%, transparent 70%)`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 6}s`,
-              filter: 'blur(2px)',
-            }}
-          />
-        ))}
-        
-        {/* Nebula-like Drifting Waves */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-0 w-full h-40 bg-gradient-to-r from-transparent via-purple-500/30 to-transparent transform rotate-12 animate-pulse"></div>
-          <div className="absolute top-2/3 right-0 w-full h-32 bg-gradient-to-l from-transparent via-cyan-500/30 to-transparent transform -rotate-6 animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-full h-24 bg-gradient-to-r from-transparent via-blue-500/25 to-transparent transform rotate-3 animate-pulse delay-2000"></div>
-        </div>
-        
-        {/* Underwater Light Caustics Effect */}
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-0 left-1/4 w-80 h-80 bg-gradient-radial from-cyan-300/40 to-transparent rounded-full animate-pulse"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-gradient-radial from-blue-400/40 to-transparent rounded-full animate-pulse delay-500"></div>
-          <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-gradient-radial from-purple-400/30 to-transparent rounded-full animate-pulse delay-1000"></div>
-        </div>
+        {/* Deep Ocean Gradient Base */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-indigo-950/90 to-purple-950/95"></div>
+        <div className="absolute inset-0 bg-gradient-radial from-cyan-900/10 via-transparent to-transparent"></div>
       </div>
       
-      {/* Enhanced Atomic Animation */}
-      <div className="absolute inset-0 opacity-30">
-        <AtomAnimation />
+      {/* 3D Cosmic Ocean Animation */}
+      <div className="absolute inset-0 opacity-80">
+        <CosmicBackground intensity="high" />
       </div>
 
       <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between relative z-10 gap-8">
@@ -124,11 +74,11 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
           
-          {/* Power Tagline with Enhanced Cosmic Effect */}
+          {/* Cosmic Ocean Tagline */}
           <div className="relative mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 opacity-20 blur-xl rounded-lg"></div>
-            <p className="relative text-lg md:text-xl text-cyan-200 font-medium leading-relaxed max-w-2xl">
-              "Transforming ideas into impactful digital experiences with AI, DevOps, and creative problem-solving."
+            <p className="relative text-lg md:text-xl text-cyan-200 font-medium leading-relaxed max-w-2xl text-center lg:text-left">
+              "Diving into Innovation, Floating Among Digital Galaxies"
             </p>
           </div>
           
