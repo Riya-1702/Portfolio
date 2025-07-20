@@ -8,6 +8,7 @@ import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { EnhancedSkillsSection } from './components/EnhancedSkillsSection';
 import { InteractiveTimeline } from './components/InteractiveTimeline';
+import { TechnologyStackCards } from './components/TechnologyStackCards';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ResearchSection } from './components/ResearchSection';
 import { CertificatesSection } from './components/CertificatesSection';
@@ -46,7 +47,7 @@ function App() {
           <WaveDivider className="text-purple-500/20" flip />
           
           <div id="technology">
-            <EnhancedSkillsSection />
+            <TechnologyStackCards />
           </div>
           
           <WaveDivider className="text-cyan-500/20" />
