@@ -3,9 +3,11 @@ import { ThemeProvider } from './components/ThemeProvider';
 import { CustomCursor } from './components/CustomCursor';
 import { LoadingScreen } from './components/LoadingScreen';
 import { RightSideMenu } from './components/RightSideMenu';
+import { AIChatAssistant } from './components/AIChatAssistant';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
-import { TechnologySection } from './components/TechnologySection';
+import { EnhancedSkillsSection } from './components/EnhancedSkillsSection';
+import { InteractiveTimeline } from './components/InteractiveTimeline';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ResearchSection } from './components/ResearchSection';
 import { CertificatesSection } from './components/CertificatesSection';
@@ -28,6 +30,7 @@ function App() {
       <div className="min-h-screen bg-gradient-to-b from-slate-900 to-indigo-950 text-cyan-100">
         <CustomCursor />
         <RightSideMenu />
+        <AIChatAssistant />
         
         <main>
           <div id="hero">
@@ -43,10 +46,16 @@ function App() {
           <WaveDivider className="text-purple-500/20" flip />
           
           <div id="technology">
-            <TechnologySection />
+            <EnhancedSkillsSection />
           </div>
           
           <WaveDivider className="text-cyan-500/20" />
+          
+          <div id="timeline">
+            <InteractiveTimeline />
+          </div>
+          
+          <WaveDivider className="text-purple-500/20" flip />
           
           <div id="projects">
             <ProjectsSection />
