@@ -6,8 +6,9 @@ import { useTheme } from './ThemeProvider';
 const navItems = [
   { id: 'hero', label: 'Home', icon: Home },
   { id: 'about', label: 'About', icon: User },
+  { id: 'technology', label: 'Skills', icon: Code },
   { id: 'projects', label: 'Projects', icon: Code },
-  { id: 'experience', label: 'Experience', icon: Briefcase },
+  { id: 'education', label: 'Education', icon: Briefcase },
   { id: 'certificates', label: 'Certificates', icon: Award },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];

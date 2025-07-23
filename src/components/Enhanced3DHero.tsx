@@ -1,84 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { Text3D, Center, Float } from '@react-three/drei';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
-import { useTheme } from './ThemeProvider';
 import { ChevronDown } from 'lucide-react';
-
-// 3D Text Component
-const AnimatedText3D = () => {
-  const textRef = useRef<any>();
-  const font = useLoader(FontLoader, '/fonts/helvetiker_regular.typeface.json');
-  
-  useFrame((state) => {
-    if (textRef.current) {
-      textRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-      textRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.05;
-    }
-  });
-
-  return (
-    <Float speed={2} rotationIntensity={0.1} floatIntensity={0.5}>
-      <Center>
-        <Text3D
-          ref={textRef}
-          font={font}
-          size={1.5}
-          height={0.3}
-          curveSegments={12}
-          bevelEnabled
-          bevelThickness={0.02}
-          bevelSize={0.02}
-          bevelOffset={0}
-          bevelSegments={5}
-        >
-          I am Riya
-          <meshStandardMaterial
-            color="#7F5AF0"
-            emissive="#7F5AF0"
-            emissiveIntensity={0.2}
-            roughness={0.1}
-            metalness={0.8}
-          />
-        </Text3D>
-      </Center>
-    </Float>
-  );
-};
-
-// Floating Particles Component
-const FloatingParticles = () => {
-  const particlesRef = useRef<any>();
-  
-  useFrame((state) => {
-    if (particlesRef.current) {
-      particlesRef.current.rotation.y = state.clock.elapsedTime * 0.1;
-    }
-  });
-
-  const particles = Array.from({ length: 50 }, (_, i) => (
-    <mesh
-      key={i}
-      position={[
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 20,
-      ]}
-    >
-      <sphereGeometry args={[0.05, 8, 8]} />
-      <meshStandardMaterial
-        color="#2CB67D"
-        emissive="#2CB67D"
-        emissiveIntensity={0.3}
-        transparent
-        opacity={0.6}
-      />
-    </mesh>
-  ));
-
-  return <group ref={particlesRef}>{particles}</group>;
-};
+import { useTheme } from './ThemeProvider';
 
 // Custom Cursor Component
 const CustomCursor = () => {
@@ -194,24 +117,40 @@ export const Enhanced3DHero: React.FC = () => {
         </div>
 
         <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between relative z-10 gap-12">
-          {/* Left Side - 3D Text and Content */}
+          {/* Left Side - Content */}
           <motion.div 
             className="flex-1 max-w-2xl text-center lg:text-left"
             initial={{ opacity: 0, y: 50 }}
             animate={controls}
           >
-            {/* 3D Text Container */}
-            <div className="h-32 mb-8 flex items-center justify-center lg:justify-start">
-              <div className="w-full max-w-md h-full">
-                <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-                  <ambientLight intensity={0.5} />
-                  <pointLight position={[10, 10, 10]} intensity={1} />
-                  <pointLight position={[-10, -10, -10]} intensity={0.5} color="#2CB67D" />
-                  <AnimatedText3D />
-                  <FloatingParticles />
-                </Canvas>
-              </div>
-            </div>
+            {/* Main Title */}
+            <motion.div 
+              className="mb-8"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              <h1 className={`text-6xl md:text-8xl font-bold leading-tight ${
+                theme === 'dark' ? 'text-off-white' : 'text-gray-800'
+              }`}>
+                <AnimatedLetters 
+                  text="Riya"
+                  className={`block ${
+                    theme === 'dark' 
+                      ? 'bg-gradient-to-r from-electric-purple via-mint-green to-electric-purple bg-clip-text text-transparent' 
+                      : 'bg-gradient-to-r from-professional-blue via-ocean-cyan to-professional-blue bg-clip-text text-transparent'
+                  }`}
+                />
+                <AnimatedLetters 
+                  text="Sharma"
+                  className={`block ${
+                    theme === 'dark' 
+                      ? 'bg-gradient-to-r from-mint-green via-electric-purple to-mint-green bg-clip-text text-transparent' 
+                      : 'bg-gradient-to-r from-ocean-cyan via-professional-blue to-ocean-cyan bg-clip-text text-transparent'
+                  }`}
+                />
+              </h1>
+            </motion.div>
             
             {/* Animated Subtitle */}
             <div className="h-16 mb-6 flex items-center justify-center lg:justify-start">

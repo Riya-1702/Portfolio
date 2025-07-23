@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './components/ThemeProvider';
 import { LoadingScreen } from './components/LoadingScreen';
 import { Enhanced3DHero } from './components/Enhanced3DHero';
-import { Enhanced3DProjectCards } from './components/Enhanced3DProjectCards';
+import { ProjectsSection } from './components/ProjectsSection';
 import { ScrollProgressIndicator } from './components/ScrollProgressIndicator';
 import { ThemeToggle } from './components/ThemeToggle';
 import { FloatingNavigation } from './components/FloatingNavigation';
 import { AIChatAssistant } from './components/AIChatAssistant';
 import { AboutSection } from './components/AboutSection';
-import { EnhancedSkillsSection } from './components/EnhancedSkillsSection';
-import { InteractiveTimeline } from './components/InteractiveTimeline';
+import { SkillsSection } from './components/SkillsSection';
+import { EducationSection } from './components/EducationSection';
 import { TechnologyStackCards } from './components/TechnologyStackCards';
 import { ResearchSection } from './components/ResearchSection';
 import { CertificatesSection } from './components/CertificatesSection';
@@ -82,7 +82,7 @@ const AppContent: React.FC = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <TechnologyStackCards />
+          <SkillsSection />
         </motion.div>
         
         <motion.div
@@ -95,13 +95,13 @@ const AppContent: React.FC = () => {
         </motion.div>
         
         <motion.div 
-          id="timeline"
+          id="education"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <InteractiveTimeline />
+          <EducationSection />
         </motion.div>
         
         <motion.div
@@ -120,7 +120,7 @@ const AppContent: React.FC = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <Enhanced3DProjectCards />
+          <ProjectsSection />
         </motion.div>
         
         <motion.div
