@@ -1,13 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { Text3D, Center, Float } from '@react-three/drei';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { useTheme } from './ThemeProvider';
 import { ChevronDown } from 'lucide-react';
 
 // 3D Text Component
 const AnimatedText3D = () => {
   const textRef = useRef<any>();
+  const font = useLoader(FontLoader, '/fonts/helvetiker_regular.typeface.json');
   
   useFrame((state) => {
     if (textRef.current) {
@@ -21,7 +23,7 @@ const AnimatedText3D = () => {
       <Center>
         <Text3D
           ref={textRef}
-          font="/fonts/helvetiker_regular.typeface.json"
+          font={font}
           size={1.5}
           height={0.3}
           curveSegments={12}
